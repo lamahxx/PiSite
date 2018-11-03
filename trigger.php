@@ -1,3 +1,7 @@
+/************************************
+/*      Php code to trigger L.E.D
+/************************************
+
 <?php
     if($_REQUEST['btn_submit'] == "On"){
                         $myfile = fopen("foo.txt", "w");
@@ -9,6 +13,5 @@
                         $file = "foo.txt";
                         unlink($file);
     }
-
-    ?>
+?>
 
