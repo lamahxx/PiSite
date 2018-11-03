@@ -16,18 +16,7 @@
                         <input type="submit" class="w3-button w3-yellow" name="btn_submit" value="On"/>
                         <input type="submit" class="w3-button w3-yellow" name="btn_submit2" value="Off"/>
                     </form>
-                <?php
-                    if($_REQUEST=['btn_submit'] == "On"){
-                        $myfile = fopen("foo.txt", "w");
-                        $txt = "yolo";
-                        fwrite($myfile, $txt);
-                        fclose($myfile);
-                    }
-                    if($_REQUEST['btn_submit2'] == "Off"){
-                        $file = "foo.txt";
-                        unlink($file);
-                    }
-                ?>
+                <?php include 'trigger.php'; ?>
 				<h2><b>nothing here matters...</b></h2>
 				<p><?php echo date('d/m h:i'); ?>
 			</div>
