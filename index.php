@@ -34,8 +34,11 @@ catch (Exception $e){
                  $res->closeCursor();
                 ?>
                 <form>
-                    <input type="text" id="login" name="logInfo" placeholder="Login...">
-                    <input type="text" id="password" name="passwordInfo" placeholder="Password...">
+                    <input type="text" id="login" name="logInfo" placeholder="Login..." />
+                    <input type="text" id="password" name="passwordInfo" placeholder="Password..." />
+                </form>
+                <form>
+                    <input  type="submit" name="connexion" value ="Connexion" />
                 </form>
                     <form>
                         <input type="submit" name="btn_ledOn" value="On"/>
