@@ -21,10 +21,18 @@ catch (Exception $e){
 			<div class="w3-display-middle w3-text-white w3-center">
 				<h1 class="w3-jumbo"></h1>
                 <?php include "databaseinput.php"; ?>
-                <form action="userlogin.php" method="post">
+                <form action="index.php" method="post">
                     <input type="text" id="login" name="logInfo" placeholder="Login..." />
                     <input type="text" id="password" name="passwordInfo" placeholder="Password..." />
                     <input  type="submit" name="connexion" value ="Connexion" />
+
+                    <?php
+                    if(isset($_POST['logInfo']) AND isset($_POST['passwordInfo'])){
+                        echo "<p>";
+                        echo "yes";
+                        echo "</p>";
+                    }
+                    ?>
                 </form>
                     <form>
                         <input type="submit" name="btn_ledOn" value="On"/>
