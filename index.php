@@ -25,16 +25,18 @@ catch (Exception $e){
                 <?php
                 $res = $bdd->query('SELECT * FROM news');
                 while ($data = $res->fetch()) {
-
                     ?>
                     <p>
                         <strong>Test</strong> : <?php echo $data['titre']; ?>
                     </p>
                     <?php
                 }
-
                  $res->closeCursor();
                 ?>
+                <form>
+                    <input type="text" id="login" name="logInfo" placeholder="Login...">
+                    <input type="text" id="password" name="passwordInfo" placeholder="Password...">
+                </form>
                     <form>
                         <input type="submit" name="btn_ledOn" value="On"/>
                         <input type="submit" name="btn_ledOff" value="Off"/>
