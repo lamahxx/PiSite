@@ -22,17 +22,7 @@ catch (Exception $e){
 		<header class="w3-display-container w3-wide bgimg w3-grayscale-mine" id="home">
 			<div class="w3-display-middle w3-text-white w3-center">
 				<h1 class="w3-jumbo"></h1>
-                <?php
-                $res = $bdd->query('SELECT * FROM news');
-                while ($data = $res->fetch()) {
-                    ?>
-                    <p>
-                        <strong>Test</strong> : <?php echo $data['titre']; ?>
-                    </p>
-                    <?php
-                }
-                 $res->closeCursor();
-                ?>
+                <?php include "databaseinput.php"; ?>
                 <form>
                     <input type="text" id="login" name="logInfo" placeholder="Login..." />
                     <input type="text" id="password" name="passwordInfo" placeholder="Password..." />
