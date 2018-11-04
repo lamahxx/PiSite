@@ -20,13 +20,44 @@ catch (Exception $e){
 		<header class="w3-display-container w3-wide bgimg w3-grayscale-mine" id="home">
 			<div class="w3-display-middle w3-text-white w3-center">
 				<h1 class="w3-jumbo"></h1>
-                 <?php #include "databaseinput.php"; ?>
-                <form action="index.php" method="post">
-                    <input type="text" id="login" name="logInfo" placeholder="Login..." />
-                    <input type="text" id="password" name="passwordInfo" placeholder="Password..." />
-                    <input  type="submit" name="connexion" value ="Connexion" />
-                </form>
-                <?php include "userlogin.php"; ?>
+
+                <?php
+                if(!isset($_POST['logInfo']) OR !isset($_POST['passwordInfo'])) {
+                    ?>
+                    <form action="index.php" method="post">
+                        <input type="text" id="login" name="logInfo" placeholder="Login..."/>
+                        <input type="text" id="password" name="passwordInfo" placeholder="Password..."/>
+                        <input type="submit" name="connexion" value="Connexion"/>
+                    </form>
+                    <?php
+                }
+?>
+                <?php
+                if(isset($_POST['logInfo']) AND isset($_POST['passwordInfo'])){
+                    //Code here user validation
+                    $logind = $_POST['logInfo'];
+                    $pw = $_POST['passwordInfo'];
+                    $ret = $bdd->query('SELECT * FROM logInfo WHERE login ="'.$logind.'" AND password = "'.$pw.'"');
+                    $row = $ret->fetch();
+                    if(!$row){
+                        echo "<p>";
+                        echo "Failure";
+                        echo "</p>";
+                    }
+                    else{
+                        ?>
+                        <form>
+                            <input type="submit" name="btn_ledOn" value="On"/>
+                            <input type="submit" name="btn_ledOff" value="Off"/>
+                            <?php include "trigger.php"; ?>
+                        </form>
+                        <?php
+                    }
+                    $ret->closeCursor();
+                }
+                ?>
+
+
                 <h2><b>nothing here matters...</b></h2>
                 <p><?php echo date('d/m h:i'); ?>
             </div>
