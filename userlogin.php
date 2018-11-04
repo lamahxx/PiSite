@@ -8,16 +8,12 @@
 $login =  $_POST['logInfo'];
 $password = $_POST['passwordInfo'];
 
-$res = $bdd->query('SELECT id, password FROM users WHERE login = $login AND  password = $password');
+$res = $bdd->query('SELECT * FROM users WHERE login = $login');
 $row = $res->fetch($res);
 if (!$row){
-    echo "<p>";
-    echo "Nothing found";
-    echo "</p>";
+    header('location: index.php');
 }
-    else{
-        echo "<p>";
-        echo "Ok it worked";
-        echo "</p>";
-    }
+else{
+    header('location: index.php');
+}
     ?>
