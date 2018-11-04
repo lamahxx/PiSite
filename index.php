@@ -1,6 +1,6 @@
 <?php
 try{
-    $bdd = new PDO('mysql:host=localhost; dbname=test; charset=utf8', 'root', 'maislol123');
+    $bdd = new PDO('mysql:host=localhost; dbname=users; charset=utf8', 'root', 'maislol123');
 }
 catch (Exception $e){
     die('Erreur : ' .$e->getMessage());
@@ -20,17 +20,28 @@ catch (Exception $e){
 		<header class="w3-display-container w3-wide bgimg w3-grayscale-mine" id="home">
 			<div class="w3-display-middle w3-text-white w3-center">
 				<h1 class="w3-jumbo"></h1>
-                <?php include "databaseinput.php"; ?>
+                 <?php #include "databaseinput.php"; ?>
                 <form action="index.php" method="post">
                     <input type="text" id="login" name="logInfo" placeholder="Login..." />
                     <input type="text" id="password" name="passwordInfo" placeholder="Password..." />
                     <input  type="submit" name="connexion" value ="Connexion" />
-
                     <?php
                     if(isset($_POST['logInfo']) AND isset($_POST['passwordInfo'])){
-                        echo "<p>";
-                        echo "yes";
-                        echo "</p>";
+                        //Code here user validation
+                        $login = $_POST['logInfo'];
+                        $pw = $_POST['passwordInfo'];
+                        $ret = $bdd->query('SELECT * FROM logInfo WHERE login = $login');
+                        $row = $ret->fetch($ret);
+                        if(!$row){
+                            echo "<p>";
+                            echo "Failure";
+                            echo "</p>";
+                        }
+                        else{
+                            echo "<p>";
+                            echo "Success";
+                            echo "</p>";
+                        }
                     }
                     ?>
                 </form>

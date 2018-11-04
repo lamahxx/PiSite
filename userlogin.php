@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: prosk
- * Date: 04/11/2018
- * Time: 02:55
- */
 $login =  $_POST['logInfo'];
 $password = $_POST['passwordInfo'];
 
@@ -16,4 +10,3 @@ if (!$row){
 else{
     header('location: index.php');
 }
-    ?>
