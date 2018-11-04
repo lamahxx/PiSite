@@ -25,28 +25,7 @@ catch (Exception $e){
                     <input type="text" id="login" name="logInfo" placeholder="Login..." />
                     <input type="text" id="password" name="passwordInfo" placeholder="Password..." />
                     <input  type="submit" name="connexion" value ="Connexion" />
-                    <?php
-                    if(isset($_POST['logInfo']) AND isset($_POST['passwordInfo'])){
-                        //Code here user validation
-                        $login = $_POST['logInfo'];
-                        $pw = $_POST['passwordInfo'];
-                        $ret = $bdd->query('SELECT * FROM logInfo WHERE login = $login');
-                        $row = $ret->fetch($ret);
-                        if(!$row){
-                            echo "<p>";
-                            echo "Failure";
-                            echo "</p>";
-                        }
-                        else{
-                            echo "<p>";
-                            echo "Success";
-                            echo "</p>";
-                        }
-                    }
-                    else {
-
-
-                    ?>
+                    <?php include "userlogin.php"; ?>
                 </form>
                 <form>
                     <input type="submit" name="btn_ledOn" value="On"/>
@@ -56,9 +35,6 @@ catch (Exception $e){
                 <h2><b>nothing here matters...</b></h2>
                 <p><?php echo date('d/m h:i'); ?>
             </div>
-            <?php
-            }
-            ?>
 		</header>
 		<footer class="w3-center w3-black w3-padding-16">
 			<p>Powered by Lamahxx</p>
