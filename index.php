@@ -25,13 +25,8 @@ catch (Exception $e){
                     <input type="text" id="login" name="logInfo" placeholder="Login..." />
                     <input type="text" id="password" name="passwordInfo" placeholder="Password..." />
                     <input  type="submit" name="connexion" value ="Connexion" />
-                    <?php include "userlogin.php"; ?>
                 </form>
-                <form>
-                    <input type="submit" name="btn_ledOn" value="On"/>
-                    <input type="submit" name="btn_ledOff" value="Off"/>
-                    <?php include "trigger.php"; ?>
-                </form>
+                <?php include "userlogin.php"; ?>
                 <h2><b>nothing here matters...</b></h2>
                 <p><?php echo date('d/m h:i'); ?>
             </div>
