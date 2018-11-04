@@ -43,16 +43,22 @@ catch (Exception $e){
                             echo "</p>";
                         }
                     }
+                    else {
+
+
                     ?>
                 </form>
-                    <form>
-                        <input type="submit" name="btn_ledOn" value="On"/>
-                        <input type="submit" name="btn_ledOff" value="Off"/>
-                        <?php include "trigger.php"; ?>
-                    </form>
-				<h2><b>nothing here matters...</b></h2>
-				<p><?php echo date('d/m h:i'); ?>
-			</div>
+                <form>
+                    <input type="submit" name="btn_ledOn" value="On"/>
+                    <input type="submit" name="btn_ledOff" value="Off"/>
+                    <?php include "trigger.php"; ?>
+                </form>
+                <h2><b>nothing here matters...</b></h2>
+                <p><?php echo date('d/m h:i'); ?>
+            </div>
+            <?php
+            }
+            ?>
 		</header>
 		<footer class="w3-center w3-black w3-padding-16">
 			<p>Powered by Lamahxx</p>
