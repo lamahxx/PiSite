@@ -6,7 +6,6 @@ catch (Exception $e){
     die('Erreur : ' .$e->getMessage());
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <title>Franky Pi</title>
@@ -22,8 +21,8 @@ catch (Exception $e){
 				<h1 class="w3-jumbo"></h1>
                 <?php
                 session_start();
-                if(!isset($_SESSION['nick'])){
-                if(!isset($_POST['logInfo']) OR !isset($_POST['passwordInfo'])) {
+
+                if(!isset($_SESSION['login'])) {
                     ?>
                     <form action="index.php" method="post">
                         <input type="text" id="login" name="logInfo" placeholder="Login..."/>
@@ -32,8 +31,7 @@ catch (Exception $e){
                     </form>
                     <?php
                 }
-                }
-?>
+                    ?>
                 <?php
                 if(isset($_POST['logInfo']) AND isset($_POST['passwordInfo'])){
                     //Code here user validation
@@ -50,7 +48,7 @@ catch (Exception $e){
                         session_start();
                         $_SESSION['id'] = $row['id'];
                         $_SESSION['pw'] = $row['password'];
-                        $_SESSION['nick'] = $row['login'];
+                        $_SESSION['login'] = $row['login'];
                         ?>
                         <form>
                             <input type="submit" name="btn_ledOn" value="On"/>
@@ -62,8 +60,6 @@ catch (Exception $e){
                     $ret->closeCursor();
                 }
                 ?>
-
-
                 <h2><b>nothing here matters...</b></h2>
                 <p><?php echo date('d/m h:i'); ?>
             </div>
