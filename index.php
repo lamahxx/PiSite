@@ -31,6 +31,15 @@ catch (Exception $e){
                     </form>
                     <?php
                 }
+                else{
+                    ?>
+                <form>
+                    <input type="submit" name="btn_ledOn" value="On"/>
+                    <input type="submit" name="btn_ledOff" value="Off"/>
+                    <?php include "trigger.php"; ?>
+                </form>
+                <?php
+                }
                     ?>
                 <?php
                 if(isset($_POST['logInfo']) AND isset($_POST['passwordInfo'])){
@@ -50,11 +59,6 @@ catch (Exception $e){
                         $_SESSION['pw'] = $row['password'];
                         $_SESSION['login'] = $row['login'];
                         ?>
-                        <form>
-                            <input type="submit" name="btn_ledOn" value="On"/>
-                            <input type="submit" name="btn_ledOff" value="Off"/>
-                            <?php include "trigger.php"; ?>
-                        </form>
                         <?php
                     }
                     $ret->closeCursor();
