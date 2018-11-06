@@ -29,28 +29,6 @@ catch (Exception $e){
                         <input type="submit" name="connexion" value="Connexion"/>
                     </form>
                     <?php
-                    if(isset($_POST['logInfo']) AND isset($_POST['passwordInfo'])){
-                        //Code here user validation
-                        $logind = $_POST['logInfo'];
-                        $pw = $_POST['passwordInfo'];
-                        $ret = $bdd->query('SELECT * FROM logInfo WHERE login ="'.$logind.'" AND password = "'.$pw.'"');
-                        $row = $ret->fetch();
-                        if(!$row){
-                            echo "<p>";
-                            echo "Failure";
-                            echo "</p>";
-                        }
-                        else{
-                            session_start();
-                            $_SESSION['id'] = $row['id'];
-                            $_SESSION['login'] = $row['login'];
-                            ?>
-                            <?php
-                        }
-                        $ret->closeCursor();
-                    }
-                    ?>
-                    <?php
                 }
                 else{
                     ?>
@@ -62,6 +40,29 @@ catch (Exception $e){
                 <?php
                 }
                     ?>
+                <?php
+                if(isset($_POST['logInfo']) AND isset($_POST['passwordInfo'])){
+                    //Code here user validation
+                    $logind = $_POST['logInfo'];
+                    $pw = $_POST['passwordInfo'];
+                    $ret = $bdd->query('SELECT * FROM logInfo WHERE login ="'.$logind.'" AND password = "'.$pw.'"');
+                    $row = $ret->fetch();
+                    if(!$row){
+                        echo "<p>";
+                        echo "Failure";
+                        echo "</p>";
+                    }
+                    else{
+                        session_start();
+                        $_SESSION['id'] = $row['id'];
+                        $_SESSION['login'] = $row['login'];
+                        header('location: index.php');
+                        ?>
+                        <?php
+                    }
+                    $ret->closeCursor();
+                }
+                ?>
                 <h2><b>nothing here matters...</b></h2>
                 <p><?php echo date('d/m h:i'); ?>
             </div>
@@ -69,5 +70,5 @@ catch (Exception $e){
 		<footer class="w3-center w3-black w3-padding-16">
 			<p>Powered by Lamahxx</p>
 		</footer>
-</body>
+	</body>
 </html>
