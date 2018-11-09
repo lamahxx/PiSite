@@ -20,7 +20,7 @@ catch (Exception $e){
 			<div class="w3-display-middle w3-text-white w3-center">
 				<h1 class="w3-jumbo"></h1>
                 <?php
-                if(!isset($_SESSION['login'])) {
+                if(!isset($_SESSION['loginyes'])) {
                     ?>
                     <form action="index.php" method="post">
                         <input type="text" id="login" name="logInfo" placeholder="Login..."/>
@@ -54,8 +54,7 @@ catch (Exception $e){
                     else{
                         session_start();
                         $_SESSION['id'] = $row['id'];
-                        $_SESSION['login'] = $row['login'];
-                        header('location: index.php');
+                        $_SESSION['loginyes'] = $row['login'];
                         ?>
                         <?php
                     }
