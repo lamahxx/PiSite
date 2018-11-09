@@ -7,6 +7,8 @@
     }
     if(isset($_POST['btn_ledOff']) == "Off"){
                         $file = "foo.txt";
-                        unlink($file);
-                        session_destroy();
+                        if ($file){
+                            unlink($file);
+                            session_destroy();
+                        }
     } ?>

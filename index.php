@@ -20,7 +20,6 @@ catch (Exception $e){
 			<div class="w3-display-middle w3-text-white w3-center">
 				<h1 class="w3-jumbo"></h1>
                 <?php
-
                 if(!isset($_SESSION['login'])) {
                     ?>
                     <form action="index.php" method="post">
