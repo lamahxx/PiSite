@@ -27,15 +27,16 @@ catch (Exception $e){
                         <input type="text" id="password" name="passwordInfo" placeholder="Password..."/>
                         <input type="submit" name="connexion" value="Connexion"/>
                     </form>
+
                     <?php
                 }
                 else{
                     ?>
-                <form>
-                    <input type="submit" name="btn_ledOn" value="On"/>
-                    <input type="submit" name="btn_ledOff" value="Off"/>
-                    <?php include "trigger.php"; ?>
-                </form>
+                    <form>
+                        <input type="submit" name="btn_ledOn" value="On"/>
+                        <input type="submit" name="btn_ledOff" value="Off"/>
+                        <?php include "trigger.php"; ?>
+                    </form>
                 <?php
                 }
                     ?>
@@ -55,6 +56,7 @@ catch (Exception $e){
                         session_start();
                         $_SESSION['id'] = $row['id'];
                         $_SESSION['loginyes'] = $row['login'];
+                        header("location: ?")
                         ?>
                         <?php
                     }
