@@ -20,14 +20,14 @@ catch (Exception $e){
 			<div class="w3-display-middle w3-text-white w3-center">
 				<h1 class="w3-jumbo"></h1>
                 <?php
-                if(!isset($_SESSION['loginyes'])) {
+                session_start();
+                if(!isset($_SESSION['login'])) {
                     ?>
-                    <form action="index.php" method="post">
+                    <form action="" method="post">
                         <input type="text" id="login" name="logInfo" placeholder="Login..."/>
                         <input type="text" id="password" name="passwordInfo" placeholder="Password..."/>
                         <input type="submit" name="connexion" value="Connexion"/>
                     </form>
-
                     <?php
                 }
                 else{
@@ -43,8 +43,8 @@ catch (Exception $e){
                 <?php
                 if(isset($_POST['logInfo']) AND isset($_POST['passwordInfo'])){
                     //Code here user validation
-                    $logind = $_POST['logInfo'];
-                    $pw = $_POST['passwordInfo'];
+                    $logind = stripslashes($_POST['logInfo']);
+                    $pw = stripslashes($_POST['passwordInfo']);
                     $ret = $bdd->query('SELECT * FROM logInfo WHERE login ="'.$logind.'" AND password = "'.$pw.'"');
                     $row = $ret->fetch();
                     if(!$row){
@@ -53,10 +53,8 @@ catch (Exception $e){
                         echo "</p>";
                     }
                     else{
-                        session_start();
                         $_SESSION['id'] = $row['id'];
-                        $_SESSION['loginyes'] = $row['login'];
-                        header("location: ?")
+                        $_SESSION['login'] = $row['login'];
                         ?>
                         <?php
                     }
